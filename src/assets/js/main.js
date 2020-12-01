@@ -22,18 +22,9 @@ let bootstrapIcons = require("svg-url-loader!../imgs/svgs/bootstrap-icons/icons-
   const windowEl = window,
     html = document.html,
     bodyEl = document.body,
-    bgImgsEls = document.querySelectorAll(".bg-img"),
     dataTablesContsEls = document.querySelectorAll(".data-tables"),
     arrSum = (arr) => arr.reduce((a, b) => a + b, 0),
     nodeToArrayConverter = (nodelist) => Array.prototype.slice.call(nodelist),
-    imgToBg = (el) => {
-      let img = el.querySelector("img"),
-        imgUrl = img.getAttribute("src");
-
-      el.style.backgroundImage = "url(" + imgUrl + ")";
-
-      $(img).remove();
-    },
     dataTablesPlugin = (table) => {
       let $table = $(table);
 
@@ -115,8 +106,6 @@ let bootstrapIcons = require("svg-url-loader!../imgs/svgs/bootstrap-icons/icons-
   const app = {
     appinit: () => {
       app.checkJs();
-      app.bgImgs();
-      app.dataTables();
       app.onaData();
     },
     checkJs: () => {
@@ -124,33 +113,7 @@ let bootstrapIcons = require("svg-url-loader!../imgs/svgs/bootstrap-icons/icons-
         $(html).removeClass("no-js").addClass("js");
       }
     },
-    bgImgs: () => {
-      let allBgImgsConts = [],
-        bgImgsArray = nodeToArrayConverter(bgImgsEls);
 
-      allBgImgsConts = allBgImgsConts.concat(bgImgsArray);
-
-      allBgImgsConts.forEach((bgImgCont) => {
-        imgToBg(bgImgCont);
-      });
-    },
-    dataTables: () => {
-      let $dataTablesEls = $(".table-test");
-
-      $dataTablesEls.DataTable({
-        columnDefs: [
-          {
-            orderable: true,
-            className: "select-checkbox",
-            targets: 0,
-          },
-        ],
-        select: {
-          style: "os",
-          selector: "td:first-child",
-        },
-      });
-    },
     onaData: () => {
       const dataURL =
         "https://raw.githubusercontent.com/onaio/zim-data/master/demographics/zim-province/Zimbabwe%20Population%20Data%20-%20province.csv";
