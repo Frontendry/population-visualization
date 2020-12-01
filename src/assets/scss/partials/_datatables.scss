@@ -1,0 +1,49 @@
+.dataTable {
+  thead {
+    th {
+      &.sorting,
+      &.sorting_asc,
+      &.sorting_desc {
+        &:after {
+          content: url("data:image/svg+xml,%3Csvg width='0.7rem' height='0.7rem' viewBox='0 0 292 375' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M131.965 15.3808C139.5 7.12345 152.5 7.12346 160.035 15.3808L262.976 128.193C274.106 140.39 265.453 160 248.941 160H43.0589C26.5474 160 17.8943 140.39 29.0238 128.193L131.965 15.3808Z' fill='%23dde1ee'/%3E%3Cpath d='M160.035 359.619C152.5 367.877 139.5 367.877 131.965 359.619L29.0238 246.807C17.8942 234.61 26.5473 215 43.0589 215L248.941 215C265.453 215 274.106 234.61 262.976 246.807L160.035 359.619Z' fill='%23dde1ee'/%3E%3C/svg%3E%0A");
+          margin-left: 0.25rem;
+        }
+      }
+      &.sorting_desc {
+        &:after {
+          content: url("data:image/svg+xml,%3Csvg width='0.7rem' height='0.7rem' viewBox='0 0 292 375' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M131.965 18.3808C139.5 7.12345 152.5 7.12346 160.035 15.3808L262.976 128.193C274.106 140.39 265.453 160 248.941 160H43.0589C26.5474 160 17.8943 140.39 29.0238 128.193L131.965 15.3808Z' fill='%23dde1ee'/%3E%3Cpath d='M160.035 359.619C152.5 367.877 139.5 367.877 131.965 359.619L29.0238 246.807C17.8942 234.61 26.5473 215 43.0589 215L248.941 215C265.453 215 274.106 234.61 262.976 246.807L160.035 359.619Z' fill='%23377dff'/%3E%3C/svg%3E%0A");
+        }
+      }
+      &.sorting_asc {
+        &:after {
+          content: url("data:image/svg+xml,%3Csvg width='0.7rem' height='0.7rem' viewBox='0 0 292 375' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M131.965 15.3808C139.5 7.12345 152.5 7.12346 160.035 15.3808L262.976 128.193C274.106 140.39 265.453 160 248.941 160H43.0589C26.5474 160 17.8943 140.39 29.0238 128.193L131.965 15.3808Z' fill='%23377dff'/%3E%3Cpath d='M160.035 359.619C152.5 367.877 139.5 367.877 131.965 359.619L29.0238 246.807C17.8942 234.61 26.5473 215 43.0589 215L248.941 215C265.453 215 274.106 234.61 262.976 246.807L160.035 359.619Z' fill='%23dde1ee'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+  }
+}
+.dataTables_paginate {
+  .paginate_button {
+    @include display-flex($justify-content: center);
+    padding: 0.5rem 0.8rem;
+    margin: 0 0.5rem;
+    border-radius: 0.2rem;
+    @include transition;
+    color: $gray-600;
+    background: transparent;
+    &.disabled {
+      color: $gray-600 !important;
+      background: transparent !important ;
+    }
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+    &.current {
+      &:not(.previous):not(.next) {
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+// Font Sizes
+.font-size-xs {
+  font-size: $font-size-xs !important;
+}
+.font-size-sm {
+  font-size: $font-size-sm !important;
+}
+.font-size-base {
+  font-size: $font-size-base !important;
+}
+.font-size-lg {
+  font-size: $font-size-lg !important;
+}
+.font-size-xlg {
+  font-size: $font-size-xlg !important;
+}
+.font-size-xxlg {
+  font-size: $font-size-xxlg !important;
+}
+
+// Type Display Classes
+.display-5 {
+  @include font-size($display5-size);
+  font-weight: $display5-weight;
+  line-height: $display-line-height;
+}
+.display-6 {
+  @include font-size($display6-size);
+  font-weight: $display6-weight;
+  line-height: $display-line-height;
+}
+
+// Letter Spacing
+@for $i from 1 through $letter-spacing-levels {
+  .letter-spacing-#{$i} {
+    letter-spacing: #{$i}px !important;
+  }
+}
+
+// Line Height
+.line-height-0 {
+  line-height: 0 !important;
+}
+.line-height-normal {
+  line-height: 1 !important;
+}
+@for $i from 1 through $line-height-levels {
+  .line-height-#{$i} {
+    line-height: #{"1."}#{$i} !important;
+  }
+}
+
+.text-black {
+  color: $black !important;
+}
+
+// Contextual Colors - Blacks
+@for $i from 1 through $opacity-levels {
+  $alpha: to-number(#{"0." + $i});
+
+  .text-black-#{$i}0 {
+    color: rgba($black, $alpha) !important;
+  }
+}
+
+// Contextual Colors - Whites
+@for $i from 1 through $opacity-levels {
+  $alpha: to-number(#{"0." + $i});
+
+  .text-white-#{$i}0 {
+    color: rgba($white, $alpha) !important;
+  }
+}
+
+// Text Underline
+.text-underline {
+  background: transparent !important;
+  position: relative !important;
+  & > * {
+    z-index: 2 !important;
+    position: relative;
+  }
+  &:before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 40% !important;
+    z-index: 1 !important;
+  }
+  @each $color, $value in $theme-colors {
+    &.bg-#{$color} {
+      &:before {
+        background-color: #{$value} !important;
+      }
+    }
+
+    &.bg-soft-#{$color} {
+      &:before {
+        background-color: rgba($value, $bg-soft-value) !important;
+      }
+    }
+  }
+}

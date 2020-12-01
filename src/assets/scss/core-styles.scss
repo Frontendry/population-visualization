@@ -1,0 +1,14 @@
+// Rahisi Functions
+@import "./partials/functions";
+
+// Bootstrap, Rahisi and User Custom Variables
+@import "./partials/variables";
+
+//Bootstrap and Rahisi Mixins
+@import "./partials/mixins";
+
+// Bootstrap Core
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// Rahisi Core
+@import "./partials/main-styles";
