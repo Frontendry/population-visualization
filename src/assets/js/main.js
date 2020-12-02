@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------
  */
 
-// SVG Injector
+// Papaparse
 import Papa from "papaparse";
 
 // Bootstrap Icons
